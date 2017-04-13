@@ -122,3 +122,6 @@ persist.timed.enable=true
 
 # WiFi
 wifi.interface=wlan0
+
+# Strict Mode
+persist.sys.strictmode.disable=true

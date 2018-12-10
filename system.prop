@@ -21,6 +21,7 @@ vendor.voice.path.for.pcm.voip=true
 vendor.voice.conc.fallbackpath=deep-buffer
 vendor.voice.playback.conc.disabled=true
 vendor.voice.record.conc.disabled=false
+ro.af.client_heap_size_kbyte=7168
 
 # Bluetooth
 bluetooth.hfp.client=1
@@ -36,6 +37,9 @@ persist.bt.enableAptXHD=true
 # Boot
 sys.vendor.shutdown.waittime=500
 ro.build.shutdown_timeout=0
+
+# Boot
+sys.vendor.shutdown.waittime=500
 
 # Camera
 media.camera.ts.monotonic=1
@@ -67,7 +71,7 @@ persist.data.mode=concurrent
 persist.data.iwlan.enable=true
 
 # FRP
-ro.frp.pst=/dev/block/bootdevice/by-name/config
+ro.frp.pst=/dev/block/platform/soc.0/7824900.sdhci/by-name/config
 
 # GPS
 persist.gps.qc_nlp_in_use=1
@@ -75,20 +79,21 @@ persist.loc.nlp_name=com.qualcomm.location
 ro.gps.agps_provider=1
 
 # Graphics
-debug.egl.hw=0
+debug.sf.hw=1
+debug.sf.latch_unsignaled=1
+debug.egl.hw=1
 debug.enable.sglscale=1
 debug.mdpcomp.logs=0
-debug.sf.hw=0
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 persist.hwc.mdpcomp.enable=true
 persist.hwc.downscale_threshold=1.15
 ro.opengles.version=196610
-ro.sf.lcd_density=440
+ro.sf.lcd_density=460
 
 # Media
 media.msm8956hw=1
-mm.enable.smoothstreaming=true
+mm.enable.sec.smoothstreaming=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
 persist.media.treble_omx=false
@@ -106,6 +111,8 @@ persist.rild.nitz_short_ons_3=
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
+ro.vendor.qti.core_ctl_min_cpu=2
+ro.vendor.qti.core_ctl_max_cpu=4
 
 # Radio
 DEVICE_PROVISIONED=1
@@ -144,3 +151,7 @@ persist.timed.enable=true
 
 # WiFi
 wifi.interface=wlan0
+
+#UI efficiency props
+ro.min.fling_velocity=160
+ro.max.fling_velocity=20000

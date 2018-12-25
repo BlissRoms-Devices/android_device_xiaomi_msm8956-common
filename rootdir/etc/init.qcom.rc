@@ -204,6 +204,7 @@ on boot
     chown system system /sys/class/sensors/ap3426-proximity/poll_delay
 
     # LED
+    chmod 0666 /sys/class/leds/flashlight/brightness
     chmod 0666 /sys/class/leds/led:torch_0/brightness
     chmod 0666 /sys/class/leds/led:torch_1/brightness
     chmod 0666 /sys/class/leds/led:switch/brightness
@@ -242,6 +243,9 @@ on post-fs
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
+
+    # Create directory used for dump collection
+    mkdir /data/vendor/ssrdump 0770 root system
 
     # Create directory used by display clients
     mkdir /data/vendor/display 0770 system graphics
@@ -496,6 +500,7 @@ service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
 service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
+    group system wakelock
     shutdown critical
     ioprio rt 0
     writepid /dev/cpuset/system-background/tasks
